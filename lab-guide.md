@@ -11,8 +11,8 @@
     - 4.2 [Reverse Engineering – Understanding the Legacy Application](#42-reverse-engineering--understanding-the-legacy-application)
     - 4.3 [Java Version Upgrade](#43-java-version-upgrade)
     - 4.4 [Full Application Modernization](#44-full-application-modernization)
-    - 4.5 [Generate Unit Tests](#45-generate-unit-tests-optional)
-    - 4.6 [Create Kubernetes/OpenShift Deployment Artifacts](#46-create-kubernetesopenshift-deployment-artifacts-optional)
+    - 4.5 [Generate Unit Tests](#45-generate-unit-tests)
+    - 4.6 [Create Kubernetes/OpenShift Deployment Artifacts](#46-create-kubernetesopenshift-deployment-artifacts)
 5. [Key Modernization Achievements](#5-key-modernization-achievements)
 6. [Troubleshooting](#6-troubleshooting)
 

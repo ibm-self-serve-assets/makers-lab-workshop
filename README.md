@@ -31,8 +31,8 @@ Take a **Legacy Struts 1.3** netbanking application (Java 8, JSP, SQLite) with n
 2. Reverse engineering – understand the legacy application
 3. Java version upgrade
 4. Full application modernization
-5. Generate unit tests (optional)
-6. Create Kubernetes/OpenShift deployment artifacts (optional)
+5. Generate unit tests 
+6. Create Kubernetes/OpenShift deployment artifacts
 
 ## Key Modernization Achievements
 
