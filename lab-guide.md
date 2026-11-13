@@ -8,11 +8,12 @@
 3. [Overview](#3-overview)
 4. [Lab Steps](#4-lab-steps)
     - 4.1 [Import Project into Bob Workspace](#41-import-project-into-bob-workspace)
-    - 4.2 [Reverse Engineering – Understanding the Legacy Application](#42-reverse-engineering--understanding-the-legacy-application)
-    - 4.3 [Java Version Upgrade](#43-java-version-upgrade)
-    - 4.4 [Full Application Modernization](#44-full-application-modernization)
-    - 4.5 [Generate Unit Tests](#45-generate-unit-tests)
-    - 4.6 [Create Kubernetes/OpenShift Deployment Artifacts](#46-create-kubernetesopenshift-deployment-artifacts)
+    - 4.2 [Run the Legacy Application](#42-run-the-legacy-application)
+    - 4.3 [Reverse Engineering – Understanding the Legacy Application](#43-reverse-engineering--understanding-the-legacy-application)
+    - 4.4 [Java Version Upgrade](#44-java-version-upgrade)
+    - 4.5 [Full Application Modernization](#45-full-application-modernization)
+    - 4.6 [Generate Unit Tests](#46-generate-unit-tests)
+    - 4.7 [Create Kubernetes/OpenShift Deployment Artifacts](#47-create-kubernetesopenshift-deployment-artifacts)
 5. [Key Modernization Achievements](#5-key-modernization-achievements)
 6. [Troubleshooting](#6-troubleshooting)
 
@@ -173,7 +174,47 @@ The folder structure should appear as follows:
 
 ![Folder Structure](images/image-5.png)
 
-### 4.2 Reverse Engineering – Understanding the Legacy Application
+### 4.2 Run the Legacy Application
+
+**Objective:** Build and run the legacy Struts application locally to see what you are modernizing before any changes are made.
+
+> **Prerequisites:** Java 8 (JDK) and Maven must be available on your `PATH`. See [Section 2.5](#25-required-software) for install instructions.
+
+1. **Open a terminal** at the root of the repository (the `Java-Modernization-Bob-2.0` folder).
+
+2. **Build the WAR file:**
+```sh
+cd legacy-netbanking
+mvn clean package
+```
+Maven compiles the source, runs the build lifecycle, and produces `target/legacy-netbanking.war`.
+
+3. **Start the embedded Tomcat server:**
+```sh
+mvn tomcat7:run
+```
+Tomcat starts on port **8080**. You should see a line like `INFO: Starting Coyote HTTP/1.1 on http-8080` in the terminal output.
+
+4. **Open the application in a browser:**
+```
+http://localhost:8080/legacy-netbanking
+```
+You will be presented with the legacy login page. Log in with:
+- **Username:** `admin`
+- **Password:** `admin123`
+
+Explore the application — note the JSP-rendered pages, the navigation style, and the overall user experience. This is the baseline you will be modernizing.
+
+5. **Stop the server** by pressing `Ctrl+C` in the terminal before proceeding to the next step.
+
+> **Tip:** You can also run both steps as a single command:
+> ```sh
+> mvn clean package tomcat7:run
+> ```
+
+---
+
+### 4.3 Reverse Engineering – Understanding the Legacy Application
 **Objective:** Analyze the undocumented early-2000s code.
 
 1. **Switch to Ask Mode:** Click on the **+** icon in the Bob chat box, and select **‘Ask’** from the Modes list.
@@ -208,7 +249,7 @@ The folder structure should appear as follows:
 
 ![Activity Diagram Preview](images/image-14.png)
 
-### 4.3 Java Version Upgrade
+### 4.4 Java Version Upgrade
 **Objective:** Upgrade to Java 17.
 
 1. **Start the Workflow:** Click on the workflow icon (play button) in the Bob toolbar. You will see a list of workflows, including Java Modernization, Java Unit Testing and others (for example, Explain code). Click **Start** next to **Java Modernization**.
@@ -249,7 +290,7 @@ The folder structure should appear as follows:
 
 ![Upgrade Success Flowchart](images/image-25.png)
 
-### 4.4 Full Application Modernization
+### 4.5 Full Application Modernization
 **Objective:** Transform to Spring Boot + React using the UI Modernization workflow.
 
 1. **Start UI Modernization:** Go to the workflows tab again and click **Start** next to **Java Modernization**. Expand the entry to see the available options (Java Upgrade, Liberty Modernization and UI Modernization). Verify the project path and click **Continue**. Approve the tasks, and when the Modernization Type screen appears, select **“UI Modernization”** this time, keep Git Flow turned off, and click **Continue**.
@@ -336,7 +377,7 @@ mkdir backend
 11. The modernization is now complete. Bob shows an **All tasks completed!** summary with a visualization of the modernization steps and the cost of each subtask.
 ![Complete](images/image-49.png)
 
-### 4.5 Generate Unit Tests
+### 4.6 Generate Unit Tests
 **Objective:** Add JaCoCo and generate unit tests for the modernized Spring Boot backend using the Java Unit Testing workflow.
 
 1. **Start the Workflow:** Open the `backend` directory in a Bob window. Click on the workflow icon (play button) and click **Start** next to **Java Unit Testing**. Bob checks the project and finds no code coverage tool, so it starts the **Add JaCoCo library** subtask. Approve the subtask.
@@ -367,7 +408,7 @@ mkdir backend
 
 ![Unit Testing Summary](images/image-58.png)
 
-### 4.6 Create Kubernetes/OpenShift Deployment Artifacts 
+### 4.7 Create Kubernetes/OpenShift Deployment Artifacts
 1. Switch to previous bob window and check if you are in Agent Mode.
 2. Start a new task and enter: *"I want to deploy this application to Openshift. The frontend code is at frontend/ and backend code is at backend/. Create required artifacts and scripts"*.
 
