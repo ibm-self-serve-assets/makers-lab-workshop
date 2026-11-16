@@ -199,6 +199,7 @@ Tomcat starts on port **8080**. You should see a line like `INFO: Starting Coyot
 ```
 http://localhost:8080/legacy-netbanking
 ```
+Click on the "Initialize database" link below the login button.
 You will be presented with the legacy login page. Log in with:
 - **Username:** `admin`
 - **Password:** `admin123`
@@ -311,20 +312,24 @@ Explore the application — note the JSP-rendered pages, the navigation style, a
 
 ![Write architecture document](images/image-32.png)
 
-3. **Set Up the Project:** Once the analysis is completed, the **Setup UI Modernization Project** form is displayed. Keep both **“Frontend Modernization”** and **“Backend Modernization”** switched on. The framework and path fields are still empty at this point.
+3. **Set Up the Project:** Once the analysis is completed, the **Setup UI Modernization Project** form is displayed. Keep both **"Frontend Modernization"** and **"Backend Modernization"** switched on. The framework and path fields are still empty at this point.
 
-   The frontend and backend folders must exist before you submit the form. Open a terminal one level above `legacy-netbanking` (the root of the `Java-Modernization-Bob-2.0` folder) and run the following commands:
+   **3a. Create the frontend and backend folders**
+
+   The folders must exist on disk before you fill in the form. Open a terminal at the root of the `Java-Modernization-Bob-2.0` folder (one level above `legacy-netbanking`) and run:
 ```sh
 mkdir frontend
 mkdir backend
 ```
 
-   Then configure the modernization options:
+   **3b. Configure the project in Bob**
+
+   Back in the **Setup UI Modernization Project** form, fill in the following options:
    - Select **Frontend Framework: React**.
    - Select **Frontend Design System: Carbon Design System**.
-   - Frontend Project Path: Click **Select Directory** and choose the `frontend` directory we just created.
+   - Frontend Project Path: Click **Select Directory** and choose the `frontend` directory you just created.
    - Select **Backend Framework: Spring Boot**.
-   - Backend Project Path: Click **Select Directory** and choose the `backend` directory we just created.
+   - Backend Project Path: Click **Select Directory** and choose the `backend` directory you just created.
    - Click **Setup Project**.
 
 ![Setup UI Modernization Project](images/image-33.png)
