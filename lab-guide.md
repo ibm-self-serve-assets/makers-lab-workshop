@@ -15,7 +15,7 @@
     - 4.6 [Generate Unit Tests](#46-generate-unit-tests)
     - 4.7 [Create Kubernetes/OpenShift Deployment Artifacts](#47-create-kubernetesopenshift-deployment-artifacts)
 5. [Key Modernization Achievements](#5-key-modernization-achievements)
-6. [Troubleshooting](#6-troubleshooting)
+
 
 ---
 
