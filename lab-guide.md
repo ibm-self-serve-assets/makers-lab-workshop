@@ -110,7 +110,6 @@ Verify (load SDKMAN into the current shell first, or open a new terminal):
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk version
 ```
-If SDKMAN is not installed, see [6.1 SDKMAN not installed](#61-sdkman-not-installed).
 
 4. Install `node` and `npm` (npm is installed together with Node.js). Use Node.js 20 or later (LTS recommended).
 ```sh
